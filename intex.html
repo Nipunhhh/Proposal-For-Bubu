@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Proposal</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffecf0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #d63384;
+        }
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .question {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+        button {
+            background-color: #ff4081;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .balloon {
+            display: none;
+            width: 100px;
+            position: absolute;
+            animation: floatUp 2s ease-out;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(-50px); opacity: 1; }
+        }
+        .final-section {
+            display: none;
+            font-size: 22px;
+            color: #d63384;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Special Quiz for You ❤️</h1>
+    
+    <div class="quiz-container">
+        <p class="question">1. When did we meet for the first time?</p>
+        <button onclick="checkAnswer(1, 'June 14, 2024')">14th June 2024</button>
+        <button onclick="checkAnswer(1, 'June 30, 2024')">30th June 2024</button>
+        <button onclick="checkAnswer(1, 'July 6, 2024')">6th July 2024</button>
+        <button onclick="checkAnswer(1, 'July 14, 2024')">14th July 2024</button>
+
+        <p class="question">2. When did I propose to you?</p>
+        <button onclick="checkAnswer(2, 'June 30, 2024')">30th June 2024</button>
+        <button onclick="checkAnswer(2, 'June 14, 2024')">14th June 2024</button>
+        <button onclick="checkAnswer(2, 'July 6, 2024')">6th July 2024</button>
+        <button onclick="checkAnswer(2, 'July 14, 2024')">14th July 2024</button>
+
+        <p class="question">3. What was the first thing I called you as my girlfriend?</p>
+        <button onclick="checkAnswer(3, 'Panda')">Panda</button>
+        <button onclick="checkAnswer(3, 'Penguin')">Penguin</button>
+        <button onclick="checkAnswer(3, 'Crocodile')">Crocodile</button>
+        <button onclick="checkAnswer(3, 'Kaddu')">Kaddu</button>
+
+        <p class="question">4. Select the odd one out:</p>
+        <button onclick="checkAnswer(4, 'Butterscotch Ice Cream')">Butterscotch Ice Cream</button>
+        <button onclick="checkAnswer(4, 'Chocolate Cake')">Chocolate Cake</button>
+        <button onclick="checkAnswer(4, 'Milk')">Milk</button>
+        <button onclick="checkAnswer(4, 'Cold Rice')">Cold Rice</button>
+
+        <p class="question">5. What is Nipunh Punj's dream after becoming CM?</p>
+        <button onclick="checkAnswer(5, 'To open his own firm')">To open his own firm</button>
+        <button onclick="checkAnswer(5, 'To marry Bubu Patel')">To marry Bubu Patel</button>
+        <button onclick="checkAnswer(5, 'To get rich enough to explore the world alone')">To get rich enough to explore the world alone</button>
+        <button onclick="checkAnswer(5, 'He wants to die')">He wants to die</button>
+    </div>
+    
+    <img id="balloon" class="balloon" src="https://www.pngall.com/wp-content/uploads/2016/06/Heart-Balloons-PNG-Image.png">
+
+    <div id="finalMessage" class="final-section">
+        🎉 You completed the quiz! Now, here's something special... 🎉
+        <br><br>
+        ❤️ Will you be my girlfriend again? ❤️
+        <br>
+        <button onclick="showLove()">Yes, I do! 💖</button>
+    </div>
+
+    <script>
+        let correctAnswers = 0;
+
+        function checkAnswer(questionNumber, answer) {
+            const correct = {
+                1: "June 14, 2024",
+                2: "June 30, 2024",
+                3: "Panda",
+                4: "Milk",
+                5: "To marry Bubu Patel"
+            };
+
+            if (correct[questionNumber] === answer) {
+                correctAnswers++;
+                document.getElementById("balloon").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("balloon").style.display = "none";
+                }, 2000);
+            }
+
+            if (correctAnswers === 5) {
+                setTimeout(() => {
+                    document.querySelector('.quiz-container').style.display = 'none';
+                    document.getElementById('finalMessage').style.display = 'block';
+                }, 1500);
+            }
+        }
+
+        function showLove() {
+            document.body.innerHTML = "<h1 style='color:#ff4081;'>💖 I Love You So Much! 💖</h1><p style='font-size:20px;'>Here’s some virtual chocolates 🍫 and hearts ❤️ just for you!</p>";
+        }
+    </script>
+
+</body>
+</html>
